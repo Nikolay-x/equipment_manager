@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Home Page{% endblock %}
+
+{% block page_content %}
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/ships-fleet.jpg' %}" class="d-block w-100" alt="">
+                <div class="text1">
+                    <ul><h3><span id="e-ship">E</span>quipment <span id="e-ship">M</span>anager</h3></ul>
+                    <ul>All the data into one easy-to-access location.</ul>
+                    <ul><p id="ship-caption">Ships Fleets</p></ul>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/ethanol-plant.jpg' %}" class="d-block w-100" alt="...">
+                <div class="text2">
+                    <ul><h3><span id="e-green">E</span>quipment <span id="e-green">M</span>anager</h3></ul>
+                    <ul>All the data into one easy-to-access location.</ul>
+                    <ul><p id="green-caption">Green Energy</p></ul>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/power-plant.jpg' %}" class="d-block w-100" alt="...">
+                <div class="text3">
+                    <ul><h3><span id="e-power">E</span>quipment <span id="e-power">M</span>anager</h3></ul>
+                    <ul>All the data into one easy-to-access location.</ul>
+                    <ul><p id="power-caption">Power Plants</p></ul>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+{% endblock %}

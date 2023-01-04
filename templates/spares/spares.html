@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Spares{% endblock %}
+
+{% block search_form %}
+
+    <form method="get" class="d-flex mt-3 mt-lg-0" role="search">
+        <input name="pattern" class="form-control me-2" type="search"
+               placeholder="Spares Ref Document Code" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
+        {% csrf_token %}
+    </form>
+
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div style="margin-bottom: 30px;">
+            <h2 class="pb-2 border-bottom" id="text-color">Spares</h2>
+        </div>
+
+        {% for spare in spares %}
+
+            <div id="a-container">
+                <div style="width: 20%; text-align: center;">
+                    <div>Pump:</div>
+
+                    {% if spare.pump is not null %}
+
+                        <div>{{ spare.pump_tag }}</div>
+
+                    {% else %}
+
+                        <div>No related pump</div>
+
+                    {% endif %}
+
+                    <div>Name:</div>
+                    <div>{{ spare.name }}</div>
+                </div>
+                <div style="width: 20%; text-align: center;">
+                    <div>Ref Document Code:</div>
+                    <div>{{ spare.ref_doc_code }}</div>
+                </div>
+                <div style="width: 20%; text-align: center;">
+                    <div>Location:</div>
+                    <div>{{ spare.location }}</div>
+                </div>
+                <div style="width: 20%; text-align: center;">
+                    <div>Quantity (pcs):</div>
+                    <div>{{ spare.quantity }}</div>
+                </div>
+                <div style="width: 20%; text-align: center;">
+                    <div style="margin-top: 2%;">
+                        <a class="btn btn-outline-success" href="{% url 'spares edit' pk=spare.pk %}" id="edit-button">Edit
+                            Spares</a>
+                    </div>
+                    <div style="margin: 2% 0 2% 0;">
+                        <a class="btn btn-outline-success" href="{% url 'spares delete' pk=spare.pk %}"
+                           id="delete-button">Delete Spares</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

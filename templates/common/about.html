@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM About{% endblock %}
+{% block local_css %}<link href="{% static 'carousel.css' %}" rel="stylesheet">{% endblock %}
+
+{% block page_content %}
+
+  <div class="container marketing">
+
+    <hr class="featurette-divider" style="border: 1px solid white;">
+  
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1" style="color: rgb(0, 25, 51);">Equipment Manager. <span style="color: lightgreen;">Your day-to-day helper.</span></h2>
+        <p class="lead" style="color: white;">The online equipment manager simplifies the management process by centralizing all the data into one easy-to-access location​ ​​for management and operators alike.</p>
+      </div>
+      <div class="col-md-5" style="background-image: url({% static 'images/ships-fleet.jpg' %}); background-size: 100%;">
+      </div>
+    </div>
+  
+    <hr class="featurette-divider" style="border: 1px solid white;">
+  
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1" style="color: rgb(0, 25, 51);">Equipment Manager. <span style="color: lightgreen;">Your day-to-day helper.</span></h2>
+        <p class="lead" style="color: white;">The online equipment manager simplifies the management process by centralizing all the data into one easy-to-access location​ ​​for management and operators alike.</p>
+      </div>
+      <div class="col-md-5 order-md-1" style="background-image: url({% static 'images/ethanol-plant.jpg' %}); background-size: 100%;">
+      </div>
+    </div>
+  
+    <hr class="featurette-divider" style="border: 1px solid white;">
+  
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1" style="color: rgb(0, 25, 51);">Equipment Manager. <span style="color: lightgreen;">Your day-to-day helper.</span></h2>
+        <p class="lead" style="color: white;">The online equipment manager simplifies the management process by centralizing all the data into one easy-to-access location​ ​​for management and operators alike.</p>
+      </div>
+      <div class="col-md-5" style="background-image: url({% static 'images/power-plant.jpg' %}); background-size: 100%;">
+      </div>
+    </div>
+  
+    <hr class="featurette-divider" style="border: 1px solid white;">
+  
+    </div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Pump Maintenance Activities{% endblock %}
+
+{% block page_content %}
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div style="margin-bottom: 30px;">
+            <h2 class="pb-2 border-bottom" id="text-color">Pump Open Maintenance Activities</h2>
+            <h3 style="display: inline-block">Pump Tag:</h3>
+            <h3 style="display: inline-block">{{ pump_tag }}</h3>
+        </div>
+
+        {% for activity in open_activities %}
+
+            <div id="a-container">
+                <div style="width: 75%; margin-right: 12px;">{{ activity.description }}</div>
+                <div style="width: 12%; text-align: center;">
+                    <div>Pump:</div>
+                    <div>{{ activity.pump_tag }}</div>
+                    <div>Status:</div>
+                    <div>{{ activity.status }}</div>
+                </div>
+                <div style="width: 12%; font-weight: 600;">
+                    <div>Due Date:</div>
+                    <div>{{ activity.due_date }}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div style="margin-bottom: 30px;">
+            <h2 class="pb-2 border-bottom" id="text-color">Pump Close Maintenance Activities</h2>
+            <h3 style="display: inline-block">Pump Tag:</h3>
+            <h3 style="display: inline-block">{{ pump_tag }}</h3>
+        </div>
+
+        {% for activity in close_activities %}
+
+            <div id="a-container">
+                <div style="width: 75%; margin-right: 12px;">{{ activity.description }}</div>
+                <div style="width: 12%; text-align: center;">
+                    <div>Pump:</div>
+                    <div>{{ activity.pump_tag }}</div>
+                    <div>Status:</div>
+                    <div>{{ activity.status }}</div>
+                </div>
+                <div style="width: 12%; font-weight: 600;">
+                    <div>Due Date:</div>
+                    <div>{{ activity.due_date }}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

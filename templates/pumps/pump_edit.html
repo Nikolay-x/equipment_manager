@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Edit Pump{% endblock %}
+
+{% block page_content %}
+
+    <section id="section-form" style="text-align: center; margin-bottom: 60px">
+        <form method="post" action="{% url 'pump edit' pk=object.pk %}" id="form-style">
+            <div>
+                <h2 style="margin-top: 21px;">Edit Pump</h2>
+
+                {{ form }}
+
+                <div style="margin-top: 51px; margin-bottom: 51px;">
+                    <input class="btn btn-outline-success" id="edit-button" type="submit" value="Edit Pump">
+                    {% csrf_token %}
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

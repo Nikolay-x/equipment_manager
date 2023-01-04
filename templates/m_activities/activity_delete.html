@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Delete Maintenance Activity{% endblock %}
+
+{% block page_content %}
+
+    <section id="section-form" style="text-align: center; margin-bottom: 60px">
+        <h1>
+            Are you sure you want to delete the maintenance activity?
+        </h1>
+        <form method="post" action="{% url 'activity delete' pk=object.pk %}" id="form-style">
+            <div>
+                <div style="margin-top: 51px; margin-bottom: 51px;">
+                    <input class="btn btn-outline-success" id="delete-button" type="submit"
+                           value="Delete Maintenance Activity">
+                    {% csrf_token %}
+                </div>
+            </div>
+        </form>
+        <div style="margin-top: 51px; margin-bottom: 51px;">
+            <a class="btn btn-outline-success" href="javascript:history.back()" id="add-button" style="width: 270px;">Go
+                Back</a>
+        </div>
+    </section>
+
+{% endblock %}

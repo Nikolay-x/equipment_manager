@@ -1,0 +1,281 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+  .b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+  }
+
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+
+  .nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+  }
+
+  .nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #main_page {
+    max-width: 1500px;
+    margin: auto;
+    background-color: #4c7397;
+  }
+
+  #search-button {
+    background: rgb(192, 192, 192);
+    border: 2px solid white;
+    color: black;
+  }
+
+  #search-button:hover {
+    background-color: rgb(0, 25, 51);
+    border: 2px solid white;
+    color: white;
+  }
+
+  #text-color-100 {
+    color: rgb(0, 25, 51);
+    font-weight: 100;
+  }
+
+  #text-color-300 {
+    color: rgb(0, 25, 51);
+    font-weight: 600;
+  }
+
+  #footer-part {
+    background-color: rgb(96, 96, 96);
+    text-align: center;
+    color:rgb(255, 255, 255);
+    margin: auto;
+    max-width: 1500px;
+  }
+
+  #footer-text {
+    color: rgb(255, 255, 255);
+  }
+
+  #logo {
+    color: #87CEFA;
+  }
+
+  .text1 {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #e-ship {
+    color: #87CEFA;
+  }
+
+  #ship-caption {
+    font-size: 21px;
+    color: #87CEFA;
+  }
+
+  .text2 {
+    color: rgb(0, 25, 51);
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #e-green {
+    color: rgb(0, 153, 0);
+  }
+
+  #green-caption {
+    font-size: 21px;
+    color: rgb(0, 153, 0);
+  }
+
+  .text3 {
+    color: rgb(255, 204, 153);
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #e-power {
+    color: red;
+  }
+
+  #power-caption {
+    font-size: 21px;
+    color: red;
+  }
+
+  #div-form {
+    max-width: 500px;
+    margin: auto;
+    border: 3px solid rgb(0, 25, 51);
+    background-color: aliceblue;
+  }
+
+  #details-center {
+    margin: auto;
+  }
+
+  #p-d-table {
+    font-size: 21px;
+    margin: auto;
+    text-align: left;
+    width: 81%;
+  }
+
+  #details-button {
+    background: white;
+    border: 2px solid rgb(0, 25, 51);
+    color: rgb(0, 25, 51);
+  }
+
+  #details-button:hover {
+    background-color: rgb(0, 25, 51);
+    border: 2px solid white;
+    color: white;
+  }
+
+  #add-button {
+    background: white;
+    border: 2px solid green;
+    color: green;
+  }
+
+  #add-button:hover {
+    background-color: green;
+    border: 2px solid white;
+    color: white;
+  }
+
+  #edit-button {
+    background: white;
+    border: 2px solid orange;
+    color: orange;
+  }
+
+  #edit-button:hover {
+    background-color: orange;
+    border: 2px solid white;
+    color: white;
+  }
+
+  #delete-button {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+  }
+
+  #delete-button:hover {
+    background-color: red;
+    border: 2px solid white;
+    color: white;
+  }
+
+  #p-d-img {
+    border-radius: 6%;
+  }
+
+  #section-form {
+    margin: auto;
+    height: auto;
+    width: 570px;
+    background: rgb(88, 109, 141);
+    border: 3px solid white;
+    border-radius: 30px;
+  }
+
+  #form-style label {
+    display: block;
+    margin-top: 21px;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+
+  #form-style input {
+    width: 270px;
+    border-radius: 12px;
+  }
+
+  #a-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: rgb(153, 204, 255);
+    border: 3px solid rgb(0, 25, 51);
+    margin-bottom: 30px;
+  }
+
+  #profile-d-table {
+    font-size: 21px;
+    margin: auto;
+    text-align: left;
+    width: 50%;
+  }
+
+  #profile-dno-img {
+    border-radius: 50%;
+  }
+
+  #profile-d-img {
+    border-radius: 50%;
+  }
+
+  #form-style-sign-up label {
+    display: block;
+    margin-top: 21px;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+
+  #form-style-sign-up input {
+    display: block;
+    margin: 45px auto auto;
+    width: 270px;
+    border-radius: 12px;
+  }

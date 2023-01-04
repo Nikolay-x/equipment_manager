@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Page Not Found{% endblock %}
+
+{% block page_content %}
+
+    <section id="section-form" style="text-align: center; margin-bottom: 60px">
+        <h1 style="margin-bottom: 30px">
+            Page not found.
+        </h1>
+
+        <img src="{% static 'images/engineers.jpg' %}" alt='Page not found.' width="450px" id="p-d-img"/>
+
+        <div style="margin-top: 51px; margin-bottom: 51px;">
+            <a class="btn btn-outline-success" href="javascript:history.back()" id="add-button" style="width: 270px;">Go Back</a>
+        </div>
+    </section>
+
+{% endblock %}

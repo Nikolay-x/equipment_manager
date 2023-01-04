@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Manuals{% endblock %}
+
+{% block search_form %}
+
+    <form method="get" class="d-flex mt-3 mt-lg-0" role="search">
+        <input name="pattern" class="form-control me-2" type="search"
+               placeholder="Manual Name" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
+        {% csrf_token %}
+    </form>
+
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div>
+            <h2 class="pb-2 border-bottom" id="text-color">Manuals</h2>
+        </div>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+            {% for manual in manuals %}
+
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                            <a href="https://imp-pumps.com/wp-content/uploads/2020/03/BWJ.pdf" target="_blank"
+                               rel="noopener noreferrer"><img class="bi" width="150em"
+                                                              src="{% static 'images/manual_logo.jpg' %}"
+                                                              alt="{{ manual.name }}"/></a>
+                        </div>
+                        <div style="display: block; text-align: center; margin-top: 9%; margin-right: 7%;">
+
+                            {% if engineer or request.user.is_superuser %}
+
+                                <a class="btn btn-outline-success" href="{% url 'manual delete' manual_id=manual.id %}"
+                                   id="delete-button">Delete Manual</a>
+
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row mb-6 text-center">
+                            <div class="col-md-8 themed-grid-col" id="text-color-300">Name:</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-100">{{ manual.name }}</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-300">Pump:</div>
+
+                            {% if manual.pump is not null %}
+
+                                <div class="col-md-8 themed-grid-col" id="text-color-100">{{ manual.pump_tag }}</div>
+
+                            {% else %}
+
+                                <div class="col-md-8 themed-grid-col" id="text-color-100">No related pump</div>
+
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

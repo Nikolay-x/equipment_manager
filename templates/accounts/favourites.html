@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Pumps{% endblock %}
+
+{% block page_content %}
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div>
+
+            {% if not pumps %}
+
+                <h2 class="pb-2 border-bottom" id="text-color">No Pumps Yet</h2>
+                <h4 id="text-color">Pumps Count: 0</h4>
+
+            {% else %}
+
+                <h2 class="pb-2 border-bottom" id="text-color">Pumps</h2>
+                <h4 id="text-color">Pumps Count: {{ pumps_count }}</h4>
+
+            {% endif %}
+
+        </div>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+            {% for pump in pumps %}
+
+                <div class="col d-flex align-items-start">
+                    <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                        <img class="bi" width="180em" height="180em"
+                             src="{{ pump.image_url }}" alt="{{ pump.tag }}"/>
+                    </div>
+                    <div>
+                        <div class="row mb-6 text-center">
+                            <div class="col-md-8 themed-grid-col" id="text-color-300">Pump Tag:</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-100">{{ pump.tag }}</div>
+                        </div>
+                        <div class="row mb-6 text-center">
+                            <div class="col-md-8 themed-grid-col" id="text-color-300">Pump Name:</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-100">{{ pump.name }}</div>
+                        </div>
+                        <div class="row mb-2 text-center">
+                            <div class="col-md-8 themed-grid-col" id="text-color-300">Pump Type:</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-100">{{ pump.type }}</div>
+                        </div>
+                        <a href="{% url 'pump details' pump_id=pump.id %}" class="btn btn-primary" id="details-button">
+                            Pump Details
+                        </a>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

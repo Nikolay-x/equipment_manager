@@ -1,0 +1,109 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Maintenance Activities{% endblock %}
+
+{% block search_form %}
+
+    <form method="get" class="d-flex mt-3 mt-lg-0" role="search">
+        <input name="pattern" class="form-control me-2" type="search"
+               placeholder="Activity Description" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
+        {% csrf_token %}
+    </form>
+
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div style="margin-bottom: 30px;">
+            <h2 class="pb-2 border-bottom" id="text-color">Open Maintenance Activities</h2>
+        </div>
+
+        {% for activity in open_activities %}
+
+            <div id="a-container">
+                <div style="width: 60%; margin-right: 12px;">{{ activity.description }}</div>
+                <div style="width: 12%; text-align: center;">
+                    <div style="margin-top: 3%;">
+                        <a class="btn btn-outline-success" href="{% url 'activity edit' pk=activity.pk %}"
+                           id="edit-button">Edit Activity</a>
+                    </div>
+                    <div style="margin-top: 3%;">
+                        <a class="btn btn-outline-success" href="{% url 'activity delete' pk=activity.pk %}"
+                           id="delete-button">Delete Activity</a>
+                    </div>
+                </div>
+                <div style="width: 12%; text-align: center;">
+                    <div>Pump:</div>
+
+                    {% if activity.pump is not null %}
+
+                        <div>{{ activity.pump_tag }}</div>
+
+                    {% else %}
+
+                        <div>No related pump</div>
+
+                    {% endif %}
+
+                    <div>Status:</div>
+                    <div>{{ activity.status }}</div>
+                </div>
+                <div style="width: 12%; font-weight: 600;">
+                    <div>Due Date:</div>
+                    <div>{{ activity.due_date }}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div style="margin-bottom: 30px;">
+            <h2 class="pb-2 border-bottom" id="text-color">Close Maintenance Activities</h2>
+        </div>
+
+        {% for activity in close_activities %}
+
+            <div id="a-container">
+                <div style="width: 60%; margin-right: 12px;">{{ activity.description }}</div>
+                <div style="width: 12%; text-align: center;">
+                    <div style="margin-top: 3%;">
+                        <a class="btn btn-outline-success" href="{% url 'activity edit' pk=activity.pk %}"
+                           id="edit-button">Edit Activity</a>
+                    </div>
+                    <div style="margin-top: 3%;">
+                        <a class="btn btn-outline-success" href="{% url 'activity delete' pk=activity.pk %}"
+                           id="delete-button">Delete Activity</a>
+                    </div>
+                </div>
+                <div style="width: 12%; text-align: center;">
+                    <div>Pump:</div>
+
+                    {% if activity.pump is not null %}
+
+                        <div>{{ activity.pump_tag }}</div>
+
+                    {% else %}
+
+                        <div>No related pump</div>
+
+                    {% endif %}
+
+                    <div>Status:</div>
+                    <div>{{ activity.status }}</div>
+                </div>
+                <div style="width: 12%; font-weight: 600;">
+                    <div>Due Date:</div>
+                    <div>{{ activity.due_date }}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

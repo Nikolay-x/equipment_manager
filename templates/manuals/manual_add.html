@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Add Manual{% endblock %}
+
+{% block page_content %}
+
+    <section id="section-form" style="text-align: center; margin-bottom: 60px">
+        <form method="post" action="{% url 'manual add' pump_id=pump_id %}" id="form-style">
+            <div>
+                <h2 style="margin-top: 21px;">Add Manual</h2>
+
+                {{ form }}
+
+                <div style="margin-top: 51px; margin-bottom: 51px;">
+                    <input class="btn btn-outline-success" id="add-button" type="submit" value="Add Manual">
+                    {% csrf_token %}
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

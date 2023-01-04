@@ -1,0 +1,193 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars-offcanvas/">
+    <link href="{% static 'assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'custom_style.css' %}" rel="stylesheet">
+    <link href="{% static 'navbar.css' %}" rel="stylesheet">
+
+    {% block local_css %}{% endblock %}
+
+</head>
+<body>
+
+<main id="main_page">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large" id="nav-style">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home page' %}"><span id="logo">E</span>quipment <span
+                    id="logo">M</span>anager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                    aria-controls="offcanvasNavbar2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            {% block search_form %}{% endblock %}
+
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+                 aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                        {% if not request.user.is_authenticated %}
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'profile signup' %}">Sign
+                                    up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'profile signin' %}">Sign
+                                    in</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
+                                   id="footer-text">About</a>
+                            </li>
+
+                        {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
+                                   id="footer-text">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Equipment
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'pumps list' %}">Pumps</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'compressors' %}">Compressors</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'generators' %}">Generators</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'oil separators' %}">Oil Separators</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'certificates' %}">Certificates</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'manuals' %}">Manuals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'activities' %}">Maintenance
+                                    Activities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'spares' %}">Spares</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Profile
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'profile details' pk=request.user.pk %}">Details</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="{% url 'favourites' %}">Favourites</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'profile signout' %}">Sign out</a></li>
+                                </ul>
+                            </li>
+
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block page_content %}
+    {% endblock %}
+
+    <div id="footer-part">
+        <footer class="py-3 my-3">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+
+                {% if not request.user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'profile signup' %}"
+                           id="footer-text">Sign
+                            up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'profile signin' %}"
+                           id="footer-text">Sign
+                            in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
+                           id="footer-text">About</a>
+                    </li>
+
+                {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'about' %}"
+                           id="footer-text">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" id="footer-text">
+                            Equipment
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'pumps list' %}">Pumps</a></li>
+                            <li><a class="dropdown-item" href="{% url 'compressors' %}">Compressors</a></li>
+                            <li><a class="dropdown-item" href="{% url 'generators' %}">Generators</a></li>
+                            <li><a class="dropdown-item" href="{% url 'oil separators' %}">Oil Separators</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'certificates' %}" id="footer-text">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'manuals' %}"
+                           id="footer-text">Manuals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'activities' %}" id="footer-text">Maintenance
+                            Activities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'spares' %}"
+                           id="footer-text">Spares</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" id="footer-text">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item"
+                                   href="{% url 'profile details' pk=request.user.pk %}">Details</a></li>
+                            <li><a class="dropdown-item" href="{% url 'favourites' %}">Favourites</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile signout' %}">Sign out</a></li>
+                        </ul>
+                    </li>
+
+                {% endif %}
+
+            </ul>
+            <p id="footer_note">&copy; Nikolay Bonev 2022 All rights reserved.</p>
+        </footer>
+    </div>
+</main>
+<script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

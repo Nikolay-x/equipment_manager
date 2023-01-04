@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Delete Certificate{% endblock %}
+
+{% block page_content %}
+
+    <section id="section-form" style="text-align: center; margin-bottom: 60px">
+        <form method="post" action="{% url 'certificate delete' certificate_id=certificate_id %}" id="form-style">
+            <div>
+                <h2 style="margin-top: 21px;">Delete Certificate</h2>
+
+                {{ form }}
+
+                <div style="margin-top: 51px; margin-bottom: 51px;">
+                    <input class="btn btn-outline-success" id="delete-button" type="submit" value="Delete Certificate">
+                    {% csrf_token %}
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

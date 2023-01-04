@@ -1,0 +1,122 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Pump Details{% endblock %}
+
+{% block page_content %}
+
+    <section style="text-align: center; margin-bottom: 60px;">
+        <h2>Pump Details</h2>
+        <h3 style="display: inline-block">Pump Tag:</h3>
+        <h3 style="display: inline-block">{{ pump.tag }}</h3>
+    </section>
+    <section style="text-align: center; height: 606px; margin: auto;">
+        <div style="width: 50%; float: left;">
+            <img src="{{ pump.image_url }}" alt='pump image' width="450px" id="p-d-img"/>
+            <div style="margin-top: 60px;">
+
+                {% if not is_favourite %}
+
+                    <a class="btn btn-outline-success" href="{% url 'add or remove favourites' pump_id=pump_id %}"
+                       id="details-button" style="margin-right: 60px;">Add to
+                        Favourites</a>
+
+                {% else %}
+
+                    <a class="btn btn-outline-success" href="{% url 'add or remove favourites' pump_id=pump_id %}"
+                       id="details-button" style="margin-right: 60px;">Remove from
+                        Favourites</a>
+
+                {% endif %}
+
+                {% if engineer or request.user.is_superuser %}
+
+                    <a class="btn btn-outline-success" href="{% url 'pump edit' pk=pump_id %}" id="edit-button"
+                       style="margin-right: 60px;">Edit</a>
+                    <a class="btn btn-outline-success" href="{% url 'pump delete' pump_id=pump_id %}"
+                       id="delete-button">Delete</a>
+
+                {% endif %}
+
+            </div>
+        </div>
+        <div style="width: 50%; float: right;">
+            <table id="p-d-table">
+                <tr>
+                    <td>Name:</td>
+                    <td>{{ pump.name }}</td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>{{ pump.type }}</td>
+                </tr>
+                <tr>
+                    <td>Model:</td>
+                    <td>{{ pump.model }}</td>
+                </tr>
+                <tr>
+                    <td>Fluid</td>
+                    <td>{{ pump.fluid }}</td>
+                </tr>
+                <tr>
+                    <td>Flow Rate (m3/h):</td>
+                    <td>{{ pump.flow_rate }}</td>
+                </tr>
+                <tr>
+                    <td>Head (m):</td>
+                    <td>{{ pump.head }}</td>
+                </tr>
+                <tr>
+                    <td>Power (kW):</td>
+                    <td>{{ pump.power }}</td>
+                </tr>
+            </table>
+            <div style="margin-top: 108px; width: 50%; float: left;">
+                <div>
+                    <a class="btn btn-outline-success" href="{% url 'pump certificates' pump_id=pump_id %}"
+                       id="details-button">Pump Certificates</a>
+                </div>
+                <div style="margin-top: 18px;">
+                    <a class="btn btn-outline-success" href="{% url 'pump manuals' pump_id=pump_id %}"
+                       id="details-button">Pump Manuals</a>
+                </div>
+                <div style="margin-top: 18px;">
+                    <a class="btn btn-outline-success" href="{% url 'pump activities' pump_id=pump_id %}"
+                       id="details-button">Pump Maintenance Activities</a>
+                </div>
+                <div style="margin-top: 18px;">
+                    <a class="btn btn-outline-success" href="{% url 'pump spares' pump_id=pump_id %}"
+                       id="details-button">Pump Spares</a>
+                </div>
+            </div>
+
+            {% if engineer or request.user.is_superuser %}
+
+                <div style="margin-top: 108px; width: 50%; float: right;">
+                    <div>
+                        <a class="btn btn-outline-success" href="{% url 'certificate add' pump_id=pump_id %}"
+                           id="add-button">Add Certificate</a>
+                    </div>
+                    <div style="margin-top: 18px;">
+                        <a class="btn btn-outline-success" href="{% url 'manual add' pump_id=pump_id %}"
+                           id="add-button">Add
+                            Manual</a>
+                    </div>
+                    <div style="margin-top: 18px;">
+                        <a class="btn btn-outline-success" href="{% url 'activity add' pump_id=pump_id %}"
+                           id="add-button">Add
+                            Maintenance Activity</a>
+                    </div>
+                    <div style="margin-top: 18px;">
+                        <a class="btn btn-outline-success" href="{% url 'spares add' pump_id=pump_id %}"
+                           id="add-button">Add
+                            Spares</a>
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </section>
+
+{% endblock %}

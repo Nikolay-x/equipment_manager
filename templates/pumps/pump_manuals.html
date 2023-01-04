@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Pump Manuals{% endblock %}
+
+{% block page_content %}
+
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div>
+            <h2 class="pb-2 border-bottom" id="text-color">Pump Manuals</h2>
+            <h3 style="display: inline-block">Pump Tag:</h3>
+            <h3 style="display: inline-block">{{ pump_tag }}</h3>
+        </div>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+            {% for manual in manuals %}
+
+                <div class="col d-flex align-items-start">
+                    <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                        <a href="https://imp-pumps.com/wp-content/uploads/2020/03/BWJ.pdf" target="_blank"
+                           rel="noopener noreferrer"><img class="bi" width="150em"
+                                                          src="{% static 'images/manual_logo.jpg' %}"
+                                                          alt="{{ manual.name }}"/></a>
+                    </div>
+                    <div>
+                        <div class="row mb-6 text-center">
+                            <div class="col-md-8 themed-grid-col" id="text-color-300">Name:</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-100">{{ manual.name }}</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-300">Pump:</div>
+                            <div class="col-md-8 themed-grid-col" id="text-color-100">{{ pump_tag }}</div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

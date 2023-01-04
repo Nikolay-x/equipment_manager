@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Edit Maintenance Activity{% endblock %}
+
+{% block page_content %}
+
+    <section id="section-form" style="text-align: center; margin-bottom: 60px">
+        <form method="post" action="{% url 'activity edit' pk=object.pk %}" id="form-style">
+            <div>
+                <h2 style="margin-top: 21px;">Edit Maintenance Activity</h2>
+
+                {{ form }}
+
+                <div style="margin-top: 51px; margin-bottom: 51px;">
+                    <input class="btn btn-outline-success" id="edit-button" type="submit"
+                           value="Edit Maintenance Activity">
+                    {% csrf_token %}
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

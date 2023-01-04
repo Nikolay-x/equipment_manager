@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Profile Details{% endblock %}
+
+{% block page_content %}
+
+    <section style="text-align: center; margin-bottom: 60px;">
+        <h2>Profile Details</h2>
+    </section>
+    <section style="text-align: center; height: 606px">
+        <div style="margin-bottom: 30px;">
+            {% if not request.user.photo %}
+                <img src="{% static 'images/profile_logo.jpg' %}" alt='profile image' width="150px" id="profile-dno-img"/>
+            {% else %}
+                <img src="/media/{{ object.photo }}" alt='{{ request.user.username }} photo' width="300px" id="profile-d-img"/>
+            {% endif %}
+        </div>
+        <div style="margin-bottom: 30px;">
+            <h3 style="margin-bottom: 18px;">
+                {% if object.first_name %}{{ request.user.first_name }}{% endif %}
+                {% if object.last_name %}{{ request.user.last_name }}{% endif %}
+            </h3>
+            <p>Username: {{ object.username }}</p>
+            <p>Email: {{ object.email }}</p>
+        </div>
+        <div>
+            <div>
+                <a class="btn btn-outline-success" href="{% url 'profile edit' pk=object.pk %}" id="edit-button"
+                   style="margin-right: 60px;">Edit</a>
+                <a class="btn btn-outline-success" href="{% url 'profile delete' pk=object.pk %}"
+                   id="delete-button">Delete</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

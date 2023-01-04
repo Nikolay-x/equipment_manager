@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}EM Edit Profile{% endblock %}
+
+{% block page_content %}
+
+    <section id="section-form" style="text-align: center; margin-bottom: 60px">
+        <form method="post" action="{% url 'profile edit' pk=request.user.pk %}" enctype="multipart/form-data" id="form-style">
+            <div>
+                <h2 style="margin-top: 21px;">Edit Profile</h2>
+
+                {{ form }}
+
+                <div style="margin-top: 51px; margin-bottom: 51px;">
+                    <input class="btn btn-outline-success" id="edit-button" type="submit" value="Edit Profile">
+                    {% csrf_token %}
+                </div>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}
