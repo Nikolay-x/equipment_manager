@@ -1,0 +1,16 @@
+INFO 2023-01-04 12:33:14,800 views 12068 9400 Pump P0002 was viewed by User1 views.py 55 - pump_details
+INFO 2023-01-04 12:33:40,476 views 12068 9400 Pump P0001 was viewed by User1 views.py 55 - pump_details
+INFO 2023-01-04 12:34:07,950 views 12068 9400 Pump P0005 was viewed by User1 views.py 55 - pump_details
+INFO 2023-01-05 09:00:03,536 views 11744 16788 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:01:11,563 views 11744 16788 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:07:00,584 views 3128 18872 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:09:45,538 views 3128 15232 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:09:53,405 views 3128 15232 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:10:54,681 views 3128 15232 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:36:09,219 views 3128 11488 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:37:21,577 views 3128 11488 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:37:27,007 views 3128 6648 Pump P0005 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:38:02,068 views 3128 21900 Pump P0005 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:38:20,029 views 3128 21900 Pump P0005 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:39:27,296 views 3128 21900 Pump P0003 was viewed by Engineer1 views.py 55 - pump_details
+INFO 2023-01-05 09:40:00,658 views 3128 17028 Pump P0005 was viewed by Engineer1 views.py 55 - pump_details
