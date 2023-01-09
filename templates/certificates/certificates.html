@@ -99,9 +99,16 @@
                                                                               alt="{{ certificate.name }}"/></a>
                         </div>
                         <div style="display: block; text-align: center; margin-top: 9%; margin-right: 6%;">
-                            <a class="btn btn-outline-success"
-                               href="{% url 'certificate delete' certificate_id=certificate.id %}" id="delete-button">Delete
-                                Certificate</a>
+
+                            {% if engineer or request.user.is_superuser %}
+
+                                <a class="btn btn-outline-success"
+                                   href="{% url 'certificate delete' certificate_id=certificate.id %}"
+                                   id="delete-button">Delete
+                                    Certificate</a>
+
+                            {% endif %}
+
                         </div>
                     </div>
                     <div>
