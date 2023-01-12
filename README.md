@@ -1,6 +1,6 @@
 <h1 align="center">Equipment Manager</h1>
 <h2 align="center">Python Web Framework Final Project<br></h2>
-<h3 align="center"><a href="https://nikolayx.pythonanywhere.com/">Click here for the deployed project</a></h3>
+<h3 align="center"><a href="https://nikolayx.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">Click here for the deployed project</a></h3>
 
 <h3>The equipment manager is aiming to organize and improve the access to industrial equipment related documents. 
 This is critical for safe and efficient running of any complex industrial system.</h3>
